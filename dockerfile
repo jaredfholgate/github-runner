@@ -17,7 +17,8 @@ RUN apt-get update \
         netcat \
         ruby \
         unzip \
-        dnsutils
+        dnsutils \
+        nodejs
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 

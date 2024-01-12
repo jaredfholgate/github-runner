@@ -1,10 +1,14 @@
 $token = $env:GH_RUNNER_TOKEN
-$organisation = $env:GH_RUNNER_ORG
+$url = $env:GH_RUNNER_URL
 $runnerName = $env:GH_RUNNER_NAME
 $runnerGroup = $env:GH_RUNNER_GROUP
 
-$gitHubUrl = 'https://github.com/{0}' -f $organisation
-
 $env:RUNNER_ALLOW_RUNASROOT = "1"
-./config.sh --unattended --url $gitHubUrl --token $token --name $runnerName --runnergroup $runnerGroup
+
+if( $null -eq $runnerGroup -or $runnerGroup -eq "") {
+    ./config.sh --unattended --url $url --token $token --name $runnerName --replace
+} else {
+    ./config.sh --unattended --url $url --token $token --name $runnerName --runnergroup $runnerGroup --replace
+}
+
 ./run.sh
