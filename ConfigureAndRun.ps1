@@ -37,6 +37,7 @@ if($isPat) {
 }
 
 # Register the runner
+$env:RUNNER_ALLOW_RUNASROOT = "1"
 if($hasRunnerGroup) {
     if($isEphemeral) {
         ./config.sh --unattended --replace --url $url --token $token --name $runnerName --runnergroup $runnerGroup --ephemeral
@@ -50,7 +51,5 @@ if($hasRunnerGroup) {
         ./config.sh --unattended --replace --url $url --token $token --name $runnerName
     }
 }
-
-$env:RUNNER_ALLOW_RUNASROOT = "1"
 
 ./run.sh
