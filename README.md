@@ -1,3 +1,5 @@
+**This repository is now archived and moved to https://github.com/Azure/terraform-azurerm-avm-ptn-cicd-agents-and-runners**
+
 # Linux GitHub Runner Docker Image
 
 > Note: You can update the [Dockerfile](Dockerfile) to add any software that your require into the Azure DevOps agent, if you don't want to have to download the bits during all pipelines executions.
